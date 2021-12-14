@@ -4,17 +4,20 @@
 #include <iostream>
 #include <memory>
 #include <mutex>
+#include <string>
 
 using namespace std;
 
 class Lock 
 {
     public:
-        explicit Lock(Mutex *pm);
-        void Unlock(Mutex *pm);
-
-    private:
-        shared_ptr<Mutex> mutexPtr;
+        explicit Lock();
+        Lock(const Lock&) = delete;
+        Lock& operator=(const Lock&) = delete;
+        ~Lock();
 };
+
+void readTurn();
+void printTurn();
 
 #endif

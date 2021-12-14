@@ -3,6 +3,7 @@
 
 #include "../../Toy/src/Toy.hpp"
 #include "../../Human/src/Human.hpp"
+#include "../../Lock/src/Lock.hpp"
 
 #include <iostream>
 #include <string>

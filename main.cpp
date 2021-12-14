@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <thread>
 using namespace std;
 
 void use_unique_pointer() 
@@ -31,46 +32,33 @@ void use_shared_pointer()
     }
 }
 
+void use_mutex()
+{
+    thread t1(readTurn);
+    thread t11(printTurn);
+    thread t2(readTurn);
+    thread t22(printTurn);
+    thread t3(readTurn);
+    thread t33(printTurn);
+    thread t4(readTurn);
+    thread t44(printTurn);
+
+    t1.join();
+    t11.join();
+    t2.join();
+    t22.join();
+    t3.join();
+    t33.join();
+    t4.join();
+    t44.join();
+}
+
 int main()
 {
-    //use_unique_pointer();
+    use_unique_pointer();
+    cout << endl;
     use_shared_pointer();
-
-    // Toy toy("Barbie doll", "BarbieEnterprise", 100);
-    // Toy toy1("Elsa doll", "Disney", 70);
-    // Toy toy2("Race car", "Nerf", 85.6);
-
-    // Child child("Johnny", "Bravo", 5, "boy");
-
-    // child.addToy(toy);
-    // child.addToy(toy1);
-    // child.addToy(toy2);
-
-    // child.printChild();
-
-    // //use copy constructor to copy a child
-    // Child child1(child);
-    // child1.printChild();
-
-    // //use copy constructor to create a toy
-    // Toy toy3(toy);
-    // toy3.printToy();
-
-    // //use copy assignment operator for child
-    // Child child2;
-    // child2 = child1;
-
-    // child2.printChild();
-
-    // //use copy assignment operator for toy
-    // Toy toy4;
-    // (toy4 = toy1) = toy2;
-
-    // //self-assign
-    // toy4 = toy4;
-
-    // toy1.printToy();
-    // toy4.printToy();
-
+    cout << endl;
+    use_mutex();
     return 0;
 }

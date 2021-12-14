@@ -1,16 +1,31 @@
 #include "Lock.hpp"
 
-Lock::Lock(Mutex *pm)
-{
-    pm -> lock();
-    this -> mutexPtr.reset(pm, unlock);
+mutex pm;
 
-    cout << "Lock" << endl;
+Lock::Lock()
+{
+    pm.lock();
+    cout << "Constructor lock" << endl;
 }
 
-void Lock::Unlock(Mutex *pm)
+Lock::~Lock()
 {
-    pm -> unlock();
+    pm.unlock();
+    cout << "Destructor unlock" << endl;
+}
 
-    cout << "Unlock" << endl;
+int counter;
+string s;
+
+void readTurn()
+{
+    Lock l;
+    counter++;
+    cout << "Choose player " << counter << ": "; cin >> s;
+}
+
+void printTurn()
+{
+    Lock l;
+    cout << s << endl;
 }

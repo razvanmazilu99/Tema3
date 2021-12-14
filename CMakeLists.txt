@@ -16,8 +16,11 @@ else()
     endif()    
 endif()    
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 add_subdirectory(src)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries("${PROJECT_NAME}" PRIVATE Child Human Toy Lock)
+target_link_libraries("${PROJECT_NAME}" PRIVATE Child Human Toy Lock Threads::Threads)

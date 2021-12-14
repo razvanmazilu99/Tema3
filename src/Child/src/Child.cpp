@@ -2,6 +2,7 @@
 #include "../../Human/src/Human.hpp"
 #include "../../Toy/src/Toy.hpp"
 #include <memory>
+#include <mutex>
 
 Child::Child() : Human(), gender("None"), toys({}) { cout << "Child default constructor called!" << endl; };
 
