@@ -18,9 +18,24 @@ void use_unique_pointer()
     child.playAndGiveAway(toy1, &child1);
 }
 
+void use_shared_pointer() 
+{
+    shared_ptr<Toy> game = make_shared<Toy>("Activity", "Piatnik", 120);
+    {
+        shared_ptr<Toy> game1 = make_shared<Toy>();
+        game1 = game;
+
+        shared_ptr<Toy> game2(game);
+
+        cout << game.use_count() << " people are playing " << game1.get() -> getName() << endl;
+    }
+}
+
 int main()
 {
-    use_unique_pointer();
+    //use_unique_pointer();
+    use_shared_pointer();
+
     // Toy toy("Barbie doll", "BarbieEnterprise", 100);
     // Toy toy1("Elsa doll", "Disney", 70);
     // Toy toy2("Race car", "Nerf", 85.6);
