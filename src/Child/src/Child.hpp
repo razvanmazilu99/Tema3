@@ -24,6 +24,9 @@ class Child : public Human
         ~Child();
         void addToy(Toy& toy);
         void printChild();
+        void play(Toy *t);
+        void playAndGiveAway(Toy *t, Child *child);
+        string getName();
 };
 
 #endif

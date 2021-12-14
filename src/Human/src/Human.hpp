@@ -18,6 +18,7 @@ class Human
         Human(string firstName, string lastName, int age);
         Human(const Human& Human);
         ~Human();
+        string printHuman();
 };
 
 #endif

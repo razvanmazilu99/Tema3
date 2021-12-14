@@ -1,9 +1,10 @@
 #include "Toy.hpp"
 
-Toy::Toy() : name("None"), manufacturer("None"), price(0) {}
+Toy::Toy() : name("None"), manufacturer("None"), price(0) { cout << "Toy default constructor called!" << endl; }
 
 Toy::Toy(string name, string manufacturer, double price) 
 {
+    cout << "Toy constructor called!" << endl;
     this -> name = name;
     this -> manufacturer = manufacturer;
     this -> price = price;
@@ -11,6 +12,7 @@ Toy::Toy(string name, string manufacturer, double price)
 
  Toy::Toy(const Toy& toy) 
  {
+     cout << "Toy copy-constructor called!" << endl;
      name = toy.name;
      manufacturer = toy.manufacturer;
      price = toy.price;
@@ -31,7 +33,7 @@ Toy& Toy::operator=(const Toy& toy)
     return *this;
 }
 
-Toy::~Toy() { }
+Toy::~Toy() { cout << "Toy destructor called!" << endl; }
 
 void Toy::printToy() 
 {
