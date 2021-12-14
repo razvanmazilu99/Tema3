@@ -1,13 +1,22 @@
 #include "src/Toy/src/Toy.hpp"
 #include "src/Child/src/Child.hpp"
+#include "src/Human/src/Human.hpp"
 
 #include <iostream>
 #include <memory>
 #include <thread>
 using namespace std;
 
+void declareHuman()
+{
+    Human human("Andrei", "Draghici", 5);
+    string s = human.printHuman();
+    cout << s << endl;
+}
+
 void use_unique_pointer() 
 {
+    declareHuman();
     Child child("Andrei", "Draghici", 5, "boy");
     Toy *toy = new Toy("Barbie doll", "BarbieEnterprise", 100);
     child.play(toy);
